@@ -804,6 +804,17 @@ abstract class Image
 	}
 
 	/**
+	 * Corrects exif orientation on the image
+	 *
+     * @param int $orientation
+	 * @return \WideImage\Image Image with corrected exif orientation
+	 **/
+	public function correctExif($orientation)
+	{
+		return $this->getOperation('CorrectExif')->execute($this, $orientation);
+	}
+
+	/**
 	 * Corrects gamma on the image
 	 *
 	 * @param float $inputGamma
