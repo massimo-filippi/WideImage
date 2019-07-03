@@ -35,8 +35,10 @@ class JPEG
 		return @imagecreatefromjpeg($uri);
 	}
 	
-	public function save($handle, $uri = null, $quality = 100)
+	public function save($handle, $uri = null, $quality = 100, $progressive = false)
 	{
+        imageinterlace($handle, $progressive);
+
 		return imagejpeg($handle, $uri, $quality);
 	}
 }
